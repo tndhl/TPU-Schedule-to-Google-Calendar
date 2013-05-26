@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows;
 
 using DotNetOpenAuth.OAuth2;
 
@@ -66,17 +66,19 @@ namespace TPU_Schedule_to_Google_Calendar.Google_Calendar
             string authCode = "";
 
             AuthenticationForm authenticationDialog = new AuthenticationForm();
-            if (authenticationDialog.ShowDialog() == DialogResult.OK)
+            authenticationDialog.ShowDialog();
+
+            if (authenticationDialog.DialogResult.HasValue && authenticationDialog.DialogResult.Value)
             {
                 authCode = authenticationDialog.authToken.Text;
 
                 if (authCode == String.Empty)
                 {
-                    Application.Exit();
+                    Application.Current.Shutdown();
                 }
             }
 
-            authenticationDialog.Dispose();
+            authenticationDialog.Hide();
 
             var result = arg.ProcessUserAuthorization(authCode, state);
 
