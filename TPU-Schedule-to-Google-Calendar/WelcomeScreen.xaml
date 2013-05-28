@@ -1,0 +1,14 @@
+﻿<Window x:Class="TPU_Schedule_to_Google_Calendar.WelcomeScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WelcomeScreen" Height="350" Width="400" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Closed="Window_Closed_1" Style="{DynamicResource GrayWindow}" MouseLeftButtonDown="Window_MouseLeftButtonDown_1">
+    <Grid Width="390" Height="340" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="171*"/>
+            <RowDefinition Height="169*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="116" Margin="30,45,0,0" VerticalAlignment="Top" Width="330" Source="pack://siteoforigin:,,,/Resources/Googlelogo.png" Panel.ZIndex="10"/>
+        <Button x:Name="JoinButton" Content="Присоединится" FocusVisualStyle="{DynamicResource BigBlueButton}" Style="{DynamicResource BigBlueButton}" Grid.Row="1" Margin="30,69,30,30" IsCancel="True" Click="JoinButton_Click"/>
+
+    </Grid>
+</Window>

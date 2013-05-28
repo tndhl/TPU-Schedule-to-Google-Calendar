@@ -1,7 +1,7 @@
 ﻿<Window x:Class="TPU_Schedule_to_Google_Calendar.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FFEDEDED" Style="{DynamicResource GrayWindow}" Closed="Window_Closed_1" MouseLeftButtonDown="Window_MouseLeftButtonDown_1">
     <Grid>
         <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="254" Margin="28,37,0,0" VerticalAlignment="Top" Width="445"/>
 

@@ -27,6 +27,19 @@ namespace TPU_Schedule_to_Google_Calendar
         {
             InitializeComponent();
 
+            if (Properties.Settings.Default.RefreshToken == String.Empty)
+            {
+                WelcomeScreen WelcomeScreen = new WelcomeScreen();
+
+                this.Hide();
+                WelcomeScreen.ShowDialog();
+
+                if (WelcomeScreen.DialogResult.HasValue && WelcomeScreen.DialogResult.Value)
+                {
+                    this.Show();
+                }
+            }
+
             Google_Calendar.Calendar CalendarService = new Google_Calendar.Calendar();
 
             listBox1.DisplayMemberPath = "Summary";
@@ -35,6 +48,16 @@ namespace TPU_Schedule_to_Google_Calendar
             {
                 listBox1.Items.Add(calendar);
             }
+        }
+
+        private void Window_Closed_1(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Window_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
